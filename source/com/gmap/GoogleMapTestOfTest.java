@@ -17,6 +17,8 @@ import org.sikuli.api.ScreenRegion;
 import org.sikuli.api.Target;
 import org.sikuli.api.robot.Mouse;
 import org.sikuli.api.robot.desktop.DesktopMouse;
+import org.sikuli.basics.FileManager;
+import org.sikuli.basics.proxies.Vision;
 import org.sikuli.script.FindFailed;
 import org.sikuli.webdriver.ImageElement;
 import org.sikuli.webdriver.SikuliFirefoxDriver;
@@ -44,6 +46,13 @@ public class GoogleMapTestOfTest {
 	 */
 	public static void main(String[] args) throws MalformedURLException, InterruptedException, FindFailed {
 		// TODO Auto-generated method stub
+		FileManager.loadLibrary("VisionProxy");
+		Float mts = Vision.getParameter("MinTargetSize");
+		System.out.println(mts);
+		Vision.setParameter("MinTargetSize", (float) 6.0);
+		mts = Vision.getParameter("MinTargetSize");
+		System.out.println(mts);
+		
 		SikuliFirefoxDriver driver = new SikuliFirefoxDriver();
 //		driver.get("https://ditu.google.com/maps?&z=12&hl=ZH-cn&ll=34.38934588891087,108.9400863647461");
 		driver.navigate().to("https://ditu.google.com/maps?&z=12&hl=ZH-cn");
@@ -77,12 +86,13 @@ public class GoogleMapTestOfTest {
 		ScreenRegion r = s.wait(imageTarget,5000);
         mouse.click(r.getCenter());
         mouse.click(r.getCenter());
-        mouse.click(s.wait(new ImageTarget(new URL("file:///Users/twer/sikuli_source/huoquluxian.png")), 5000).getCenter());
+        mouse.click(s.wait(new ImageTarget(new URL("file:///Users/twer/sikuli_source/huoquluxian.png")), 15000).getCenter());
 //        driver.findElementByLinkText("获取路线").click();
         driver.findElementByCssSelector("#d_d").sendKeys("西安钟楼");
         driver.findElementByCssSelector("#d_sub").click();
 		System.out.println("over");
 		driver.quit();
+		
 	}
 
 	public static class Xian extends GoogleMapPage {

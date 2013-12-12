@@ -66,5 +66,7 @@
 	<classpathentry kind="var" path="M2_REPO/org/ini4j/ini4j/0.5.2/ini4j-0.5.2.jar"/>
 	<classpathentry kind="lib" path="/Applications/SikuliX-IDE.app"/>
 	<classpathentry kind="lib" path="/Users/twer/projects/SikuliX-API/target/sikulix-api.jar" sourcepath="/SikuliX-API"/>
+	<classpathentry kind="lib" path="/Users/twer/.m2/repository/org/sikuli/SikuliX-API/1.0.1/SikuliX-API-1.0.1.jar"/>
+	<classpathentry kind="lib" path="/Users/twer/.m2/repository/org/sikuli/SikuliX-Basics/1.0.1/SikuliX-Basics-1.0.1.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
